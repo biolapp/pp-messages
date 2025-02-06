@@ -23,7 +23,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Dr. Sarah",
       role: "Family Care",
-      avatar: "/lovable-uploads/b7e5aba2-db0a-43f8-98bc-d4d0bab09751.png",
+      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
     },
     message: "Your lab results are ready to view",
     timestamp: "2h ago",
@@ -36,7 +36,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Nurse Johnson",
       role: "Care Coordinator",
-      avatar: "/lovable-uploads/b7e5aba2-db0a-43f8-98bc-d4d0bab09751.png",
+      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
     },
     message: "How are you feeling today?",
     timestamp: "1d ago",
@@ -49,7 +49,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Dr. Michael Chen",
       role: "Cardiologist",
-      avatar: "/lovable-uploads/b7e5aba2-db0a-43f8-98bc-d4d0bab09751.png",
+      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
     },
     message: "Please schedule a follow-up",
     timestamp: "2d ago",
@@ -65,6 +65,14 @@ const Index = () => {
   const [filter, setFilter] = useState<FilterType>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedChat, setSelectedChat] = useState<string | null>(null);
+
+  const handleFilterClick = (newFilter: FilterType) => {
+    if (newFilter === "unread" || newFilter === "urgent") {
+      setFilter(newFilter);
+    } else if (filter === "all") {
+      setFilter(newFilter);
+    }
+  };
 
   const filteredMessages = messages.filter((msg) => {
     const matchesSearch = msg.sender.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -84,7 +92,7 @@ const Index = () => {
       <div className="p-6 bg-[#FBF9F8] sticky top-0 z-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Messages</h1>
-          <button className="text-[#CBDDE0] hover:opacity-80 transition-opacity">
+          <button className="text-[#004852] hover:opacity-80 transition-opacity">
             <Plus size={24} />
           </button>
         </div>
@@ -105,13 +113,11 @@ const Index = () => {
         {["all", "unread", "urgent"].map((filterType) => (
           <button
             key={filterType}
-            onClick={() => setFilter(filterType as FilterType)}
+            onClick={() => handleFilterClick(filterType as FilterType)}
             className={cn(
               "px-6 py-2 rounded-full text-sm font-medium transition-all",
-              filterType === "all"
-                ? "bg-[#CBDDE0] text-gray-600"
-                : filter === filterType
-                ? "bg-[#FF8D6E] text-white"
+              filter === filterType
+                ? "bg-[#CBDDE0] text-white"
                 : "bg-white text-gray-600 hover:bg-gray-50"
             )}
           >
@@ -163,12 +169,9 @@ const Index = () => {
         <div className="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
           <NavButton icon={<Home size={24} />} label="Home" />
           <NavButton icon={<Calendar size={24} />} label="Appointments" />
-          <button className="flex flex-col items-center">
-            <div className="bg-[#FF8D6E] text-[#004852] rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all">
-              <Plus size={24} />
-            </div>
-            <span className="text-xs font-medium mt-1 text-gray-400">Add</span>
-          </button>
+          <div className="bg-[#FF8D6E] text-[#004852] rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all">
+            <Plus size={24} />
+          </div>
           <NavButton
             icon={<MessageSquare size={24} />}
             label="Messages"
@@ -186,20 +189,17 @@ const NavButton = ({
   icon,
   label,
   isActive = false,
-  className,
   activeColor = "#FF8D6E"
 }: {
   icon: React.ReactNode;
   label: string;
   isActive?: boolean;
-  className?: string;
   activeColor?: string;
 }) => (
   <button
     className={cn(
       "flex flex-col items-center gap-1",
-      isActive ? `text-[${activeColor}]` : "text-gray-400",
-      className
+      isActive ? `text-[${activeColor}]` : "text-gray-400"
     )}
   >
     {icon}
