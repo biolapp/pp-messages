@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Search, Plus, Home, Calendar, MessageSquare, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom"
 
 type MessageType = {
   id: string;
@@ -87,7 +88,7 @@ const Index = () => {
   });
 
   return (
-    <div className="max-w-2xl mx-auto h-screen bg-[#E8E5DF] flex flex-col">
+    <div className="max-w-2xl mx-auto bg-[#E8E5DF] flex flex-col">
       {/* Header */}
       <div className="p-6 bg-[#FBF9F8] sticky top-0 z-10">
         <div className="flex justify-between items-center mb-6">
@@ -163,48 +164,8 @@ const Index = () => {
           </div>
         ))}
       </div>
-
-      {/* Bottom Navigation */}
-      <div className="bg-[#FBF9F8] border-t border-gray-100">
-        <div className="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
-          <NavButton icon={<Home size={24} />} label="Home" />
-          <NavButton icon={<Calendar size={24} />} label="Appointments" />
-          <div className="bg-[#FF8D6E] text-[#004852] rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all">
-            <Plus size={24} />
-          </div>
-          <NavButton
-            icon={<MessageSquare size={24} />}
-            label="Messages"
-            isActive
-            activeColor="#417E86"
-          />
-          <NavButton icon={<User size={24} />} label="Profile" />
-        </div>
-      </div>
     </div>
   );
 };
-
-const NavButton = ({
-  icon,
-  label,
-  isActive = false,
-  activeColor = "#FF8D6E"
-}: {
-  icon: React.ReactNode;
-  label: string;
-  isActive?: boolean;
-  activeColor?: string;
-}) => (
-  <button
-    className={cn(
-      "flex flex-col items-center gap-1",
-      isActive ? `text-[${activeColor}]` : "text-gray-400"
-    )}
-  >
-    {icon}
-    <span className="text-xs font-medium">{label}</span>
-  </button>
-);
 
 export default Index;
