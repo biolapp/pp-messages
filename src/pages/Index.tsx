@@ -84,7 +84,7 @@ const Index = () => {
       <div className="p-6 glass-effect sticky top-0 z-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Messages</h1>
-          <button className="text-[#4A90E2] hover:opacity-80 transition-opacity">
+          <button className="text-[#FF8D6E] hover:opacity-80 transition-opacity">
             <Plus size={24} />
           </button>
         </div>
@@ -93,7 +93,7 @@ const Index = () => {
           <input
             type="text"
             placeholder="Search messages"
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#4A90E2]/20 transition-all"
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#FF8D6E]/20 transition-all"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -109,7 +109,7 @@ const Index = () => {
             className={cn(
               "px-6 py-2 rounded-full text-sm font-medium transition-all",
               filter === filterType
-                ? "bg-[#4A90E2] text-white"
+                ? "bg-[#FF8D6E] text-white"
                 : "bg-white text-gray-600 hover:bg-gray-50"
             )}
           >
@@ -143,7 +143,7 @@ const Index = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-sm text-gray-400">{msg.timestamp}</span>
                     {msg.isNew && (
-                      <span className="px-2 py-1 text-xs font-medium text-[#4A90E2] bg-[#4A90E2]/10 rounded-full">
+                      <span className="px-2 py-1 text-xs font-medium bg-[#CBDDE0] text-[#FF8D6E] rounded-full">
                         New
                       </span>
                     )}
@@ -164,7 +164,7 @@ const Index = () => {
           <NavButton
             icon={<Plus size={24} />}
             label="Add"
-            className="bg-[#4A90E2] text-white rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all"
+            className="bg-[#FF8D6E] text-white rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all"
           />
           <NavButton
             icon={<MessageSquare size={24} />}
@@ -192,7 +192,7 @@ const NavButton = ({
   <button
     className={cn(
       "flex flex-col items-center gap-1",
-      isActive ? "text-[#4A90E2]" : "text-gray-400",
+      isActive ? "text-[#FF8D6E]" : "text-gray-400",
       className
     )}
   >
