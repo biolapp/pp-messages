@@ -79,12 +79,12 @@ const Index = () => {
   });
 
   return (
-    <div className="max-w-2xl mx-auto h-screen bg-[#F8F9FC] flex flex-col">
+    <div className="max-w-2xl mx-auto h-screen bg-[#E8E5DF] flex flex-col">
       {/* Header */}
-      <div className="p-6 glass-effect sticky top-0 z-10">
+      <div className="p-6 bg-[#FBF9F8] sticky top-0 z-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Messages</h1>
-          <button className="text-[#FF8D6E] hover:opacity-80 transition-opacity">
+          <button className="text-[#CBDDE0] hover:opacity-80 transition-opacity">
             <Plus size={24} />
           </button>
         </div>
@@ -108,7 +108,9 @@ const Index = () => {
             onClick={() => setFilter(filterType as FilterType)}
             className={cn(
               "px-6 py-2 rounded-full text-sm font-medium transition-all",
-              filter === filterType
+              filterType === "all"
+                ? "bg-[#CBDDE0] text-gray-600"
+                : filter === filterType
                 ? "bg-[#FF8D6E] text-white"
                 : "bg-white text-gray-600 hover:bg-gray-50"
             )}
@@ -143,7 +145,7 @@ const Index = () => {
                   <div className="flex items-center gap-2">
                     <span className="text-sm text-gray-400">{msg.timestamp}</span>
                     {msg.isNew && (
-                      <span className="px-2 py-1 text-xs font-medium bg-[#CBDDE0] text-[#FF8D6E] rounded-full">
+                      <span className="px-2 py-1 text-xs font-medium bg-[#CBDDE0] text-white rounded-full">
                         New
                       </span>
                     )}
@@ -157,19 +159,21 @@ const Index = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="glass-effect border-t border-gray-100">
+      <div className="bg-[#FBF9F8] border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
           <NavButton icon={<Home size={24} />} label="Home" />
           <NavButton icon={<Calendar size={24} />} label="Appointments" />
-          <NavButton
-            icon={<Plus size={24} />}
-            label="Add"
-            className="bg-[#FF8D6E] text-white rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all"
-          />
+          <button className="flex flex-col items-center">
+            <div className="bg-[#FF8D6E] text-[#004852] rounded-full p-4 -mt-8 shadow-lg hover:shadow-xl transition-all">
+              <Plus size={24} />
+            </div>
+            <span className="text-xs font-medium mt-1 text-gray-400">Add</span>
+          </button>
           <NavButton
             icon={<MessageSquare size={24} />}
             label="Messages"
             isActive
+            activeColor="#417E86"
           />
           <NavButton icon={<User size={24} />} label="Profile" />
         </div>
@@ -183,16 +187,18 @@ const NavButton = ({
   label,
   isActive = false,
   className,
+  activeColor = "#FF8D6E"
 }: {
   icon: React.ReactNode;
   label: string;
   isActive?: boolean;
   className?: string;
+  activeColor?: string;
 }) => (
   <button
     className={cn(
       "flex flex-col items-center gap-1",
-      isActive ? "text-[#FF8D6E]" : "text-gray-400",
+      isActive ? `text-[${activeColor}]` : "text-gray-400",
       className
     )}
   >
