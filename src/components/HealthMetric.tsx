@@ -16,7 +16,7 @@ export const HealthMetric = ({ title, value, status, className }: HealthMetricPr
   };
 
   return (
-    <div className={cn("p-4 rounded-2xl bg-white/80 backdrop-blur-sm", className)}>
+    <div className={cn("p-4 rounded-2xl bg-white/80 backdrop-blur-sm slide-in", className)}>
       <p className="text-sm text-gray-600 mb-2">{title}</p>
       <div className="flex flex-col items-start gap-2">
         <span className="text-2xl font-semibold">{value}</span>
