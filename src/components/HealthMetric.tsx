@@ -23,9 +23,9 @@ export const HealthMetric = ({ title, value, status, className }: HealthMetricPr
         <span 
           className={cn(
             "px-3 py-1 rounded-full text-sm font-medium",
-            status === "stable" && "bg-metric-stable/10 text-metric-stable",
-            status === "up" && "bg-metric-up/10 text-metric-up",
-            status === "down" && "bg-metric-down/10 text-metric-down"
+            status === "stable" && "bg-[#D1FAE5]",
+            status === "up" && "bg-[#FEF3C7]",
+            status === "down" && "bg-[#FEE2E2]"
           )}
         >
           {status}

@@ -43,7 +43,7 @@ const Appointment = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
             <img
-              src="/lovable-uploads/642101f0-889a-412f-980d-52073d226f67.png"
+              src="https://images.unsplash.com/photo-1701615004837-40d8573b6652?w=300"
               alt="Dr. Sarah"
               className="w-12 h-12 rounded-full object-cover"
             />

@@ -24,7 +24,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Dr. Sarah",
       role: "Family Care",
-      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
+      avatar: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?w=300",
     },
     message: "Your lab results are ready to view",
     timestamp: "2h ago",
@@ -37,7 +37,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Nurse Johnson",
       role: "Care Coordinator",
-      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300",
     },
     message: "How are you feeling today?",
     timestamp: "1d ago",
@@ -50,7 +50,7 @@ const messages: MessageType[] = [
     sender: {
       name: "Dr. Michael Chen",
       role: "Cardiologist",
-      avatar: "/lovable-uploads/7ee69c4e-4a3d-4659-9f6c-5be8dffdc3c9.png",
+      avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=300",
     },
     message: "Please schedule a follow-up",
     timestamp: "2d ago",

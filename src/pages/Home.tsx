@@ -101,7 +101,7 @@ const Index = () => {
         <header className="flex justify-between items-center animate-slide-in">
           <div className="flex items-center gap-3">
             <img
-              src="/placeholder.svg"
+              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=300"
               alt="Profile"
               className="w-12 h-12 rounded-full border-2 border-white"
             />
@@ -129,7 +129,7 @@ const Index = () => {
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden">
                 <img
-                  src="/placeholder.svg"
+                  src="https://images.unsplash.com/photo-1701615004837-40d8573b6652?w=300"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -172,7 +172,7 @@ const Index = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden">
                       <img
-                        src="/placeholder.svg"
+                        src="https://images.unsplash.com/photo-1701615004837-40d8573b6652?w=300"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -198,7 +198,7 @@ const Index = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden">
                       <img
-                        src="/placeholder.svg"
+                        src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=300"
                         className="w-full h-full object-cover"
                       />
                     </div>
