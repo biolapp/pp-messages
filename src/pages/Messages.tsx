@@ -68,11 +68,7 @@ const Index = () => {
   const [selectedChat, setSelectedChat] = useState<string | null>(null);
 
   const handleFilterClick = (newFilter: FilterType) => {
-    if (newFilter === "unread" || newFilter === "urgent") {
-      setFilter(newFilter);
-    } else if (filter === "all") {
-      setFilter(newFilter);
-    }
+    setFilter(newFilter);
   };
 
   const filteredMessages = messages.filter((msg) => {
